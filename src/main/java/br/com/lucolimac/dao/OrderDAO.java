@@ -2,6 +2,7 @@ package br.com.lucolimac.dao;
 
 import br.com.lucolimac.model.Order;
 import br.com.lucolimac.model.Product;
+import br.com.lucolimac.model.SalesReport;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
@@ -26,5 +27,14 @@ public class OrderDAO {
     public void remove(Order order) {
         order = em.merge(order);
         em.remove(order);
+    }
+
+    public BigDecimal totalAmountSold() {
+        String jpql = "SELECT SUM(o.amount) FROM Order  o";
+        return em.createQuery(jpql, BigDecimal.class).getSingleResult();
+    }
+
+    public List<SalesReport> salesReport() {
+        return em.createNamedQuery("Order.salesReport", SalesReport.class).getResultList();
     }
 }

@@ -27,8 +27,10 @@ public class OrderRegistration {
         order.addOrderItem(new OrderItem(5, product, order));
         orderDAO.create(order);
 
-        em.getTransaction().commit();
 
+        em.getTransaction().commit();
+        BigDecimal amount = orderDAO.totalAmountSold();
+        System.out.println("Valor total: "+amount);
     }
 
     public static void registerProduct() {
