@@ -1,7 +1,7 @@
 package br.com.lucolimac.tests;
 
-import br.com.lucolimac.dao.CategoryDAO;
-import br.com.lucolimac.dao.ProductDAO;
+import br.com.lucolimac.dao.CategoryDao;
+import br.com.lucolimac.dao.ProductDao;
 import br.com.lucolimac.model.Category;
 import br.com.lucolimac.model.Product;
 import br.com.lucolimac.utils.JPAUtil;
@@ -15,7 +15,7 @@ public class ProductRegistration {
         registerProduct();
         Long id = 1L;
         EntityManager em = JPAUtil.getEntityManager();
-        ProductDAO productDAO = new ProductDAO(em);
+        ProductDao productDAO = new ProductDao(em);
 
         Product product = productDAO.findById(id);
         System.out.printf("The price of product %d is: %s%n", id, product.getPrice());
@@ -30,8 +30,8 @@ public class ProductRegistration {
 
     private static void registerProduct() {
         EntityManager em = JPAUtil.getEntityManager();
-        ProductDAO productDAO = new ProductDAO(em);
-        CategoryDAO categoryDAO = new CategoryDAO(em);
+        ProductDao productDAO = new ProductDao(em);
+        CategoryDao categoryDAO = new CategoryDao(em);
         Category cellPhoneCategory = new Category("CELLPHONE");
         Product cellPhone = new Product("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), cellPhoneCategory);
         em.getTransaction().begin();

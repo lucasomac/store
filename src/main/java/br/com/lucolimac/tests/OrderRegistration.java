@@ -1,9 +1,9 @@
 package br.com.lucolimac.tests;
 
-import br.com.lucolimac.dao.CategoryDAO;
-import br.com.lucolimac.dao.ClientDAO;
-import br.com.lucolimac.dao.OrderDAO;
-import br.com.lucolimac.dao.ProductDAO;
+import br.com.lucolimac.dao.CategoryDao;
+import br.com.lucolimac.dao.ClientDao;
+import br.com.lucolimac.dao.OrderDao;
+import br.com.lucolimac.dao.ProductDao;
 import br.com.lucolimac.model.*;
 import br.com.lucolimac.utils.JPAUtil;
 
@@ -14,9 +14,9 @@ public class OrderRegistration {
     public static void main(String[] args) {
         registerProduct();
         EntityManager em = JPAUtil.getEntityManager();
-        ProductDAO productDAO = new ProductDAO(em);
-        ClientDAO clientDAO = new ClientDAO(em);
-        OrderDAO orderDAO = new OrderDAO(em);
+        ProductDao productDAO = new ProductDao(em);
+        ClientDao clientDAO = new ClientDao(em);
+        OrderDao orderDAO = new OrderDao(em);
 
         Product product = productDAO.findById(1L);
         Client client = clientDAO.findById(1L);
@@ -35,9 +35,9 @@ public class OrderRegistration {
 
     public static void registerProduct() {
         EntityManager em = JPAUtil.getEntityManager();
-        ProductDAO productDAO = new ProductDAO(em);
-        CategoryDAO categoryDAO = new CategoryDAO(em);
-        ClientDAO clientDAO = new ClientDAO(em);
+        ProductDao productDAO = new ProductDao(em);
+        CategoryDao categoryDAO = new CategoryDao(em);
+        ClientDao clientDAO = new ClientDao(em);
 
         Category cellPhoneCategory = new Category("CELLPHONE");
         Product cellPhone = new Product("Xiaomi Redmi", "Muito legal", new BigDecimal("800"), cellPhoneCategory);

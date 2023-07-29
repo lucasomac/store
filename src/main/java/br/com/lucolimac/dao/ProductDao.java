@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ProductDAO {
+public class ProductDao {
 
     private final EntityManager em;
 
-    public ProductDAO(EntityManager em) {
+    public ProductDao(EntityManager em) {
         this.em = em;
     }
 

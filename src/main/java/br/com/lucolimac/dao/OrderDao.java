@@ -1,18 +1,17 @@
 package br.com.lucolimac.dao;
 
 import br.com.lucolimac.model.Order;
-import br.com.lucolimac.model.Product;
 import br.com.lucolimac.model.SalesReport;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class OrderDAO {
+public class OrderDao {
 
     private final EntityManager em;
 
-    public OrderDAO(EntityManager em) {
+    public OrderDao(EntityManager em) {
         this.em = em;
     }
 
@@ -36,5 +35,11 @@ public class OrderDAO {
 
     public List<SalesReport> salesReport() {
         return em.createNamedQuery("Order.salesReport", SalesReport.class).getResultList();
+    }
+
+    public Order searchOrderWithClient(Long id) {
+        return em.createQuery("SELECT o FROM Order o JOIN FETCH o.client WHERE o.id = :id", Order.class)
+                .setParameter("id", id)
+                .getSingleResult();
     }
 }

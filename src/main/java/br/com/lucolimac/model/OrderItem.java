@@ -12,12 +12,12 @@ public class OrderItem {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
     private int quantity;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
     public OrderItem(){}
-    public OrderItem(int quantity, Product product, Order order) {
+    public OrderItem(int quantity, Order order, Product product) {
         this.unitPrice = product.getPrice();
         this.quantity = quantity;
         this.product = product;

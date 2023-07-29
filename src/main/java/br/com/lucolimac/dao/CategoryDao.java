@@ -4,11 +4,11 @@ import br.com.lucolimac.model.Category;
 
 import javax.persistence.EntityManager;
 
-public class CategoryDAO {
+public class CategoryDao {
 
     private final EntityManager em;
 
-    public CategoryDAO(EntityManager em) {
+    public CategoryDao(EntityManager em) {
         this.em = em;
     }
 

@@ -1,16 +1,14 @@
 package br.com.lucolimac.dao;
 
-import br.com.lucolimac.model.Category;
 import br.com.lucolimac.model.Client;
-import br.com.lucolimac.model.Product;
 
 import javax.persistence.EntityManager;
 
-public class ClientDAO {
+public class ClientDao {
 
     private final EntityManager em;
 
-    public ClientDAO(EntityManager em) {
+    public ClientDao(EntityManager em) {
         this.em = em;
     }
 
