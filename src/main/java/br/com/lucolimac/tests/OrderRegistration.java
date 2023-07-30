@@ -24,7 +24,7 @@ public class OrderRegistration {
         em.getTransaction().begin();
 
         Order order = new Order(client);
-        order.addOrderItem(new OrderItem(5, product, order));
+        order.addOrderItem(new OrderItem(5, order, product));
         orderDAO.create(order);
 
 

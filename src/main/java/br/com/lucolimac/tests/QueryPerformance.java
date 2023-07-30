@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class QueryPerformance {
 
     public static void main(String[] args) {
-        popularBancoDeDados();
+        populateDatabase();
         EntityManager em = JPAUtil.getEntityManager();
         OrderDao orderDao = new OrderDao(em);
         Order order = orderDao.searchOrderWithClient(1L);
@@ -21,7 +21,7 @@ public class QueryPerformance {
         System.out.println(order.getClient().getName());
     }
 
-    private static void popularBancoDeDados() {
+    private static void populateDatabase() {
         Category celulares = new Category("CELULARES");
         Category videogames = new Category("VIDEOGAMES");
         Category informatica = new Category("INFORMATICA");

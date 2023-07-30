@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-@NamedQuery(name = "Order.salesReport", query = "SELECT new br.com.lucolimac.model.SalesReport(Product.name, SUM(itens.quantity), MAX(o.createdDate)) FROM Order o JOIN o.orderItems itens JOIN itens.product p GROUP BY p.name ORDER BY itens.quantity DESC")
+@NamedQuery(name = "Order.salesReport", query = "SELECT new br.com.lucolimac.model.SalesReport(p.name, SUM(itens.quantity), MAX(o.createdDate)) FROM Order o JOIN o.orderItems itens JOIN itens.product p GROUP BY p.name ORDER BY itens.quantity DESC")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
